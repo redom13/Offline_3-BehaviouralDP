@@ -1,32 +1,42 @@
 import java.util.ArrayList;
 
 public class User {
-    private ArrayList<Genre> favouriteGenres;
+    private DesiflixPlatform desiflix;
+    private ArrayList<String> favouriteGenres;
     private String userName;
 
     public User(String userName){
         this.userName = userName;
-        this.favouriteGenres = new ArrayList<Genre>();
+        this.favouriteGenres = new ArrayList<String>();
     }
 
-    public void addFavouriteGenre(Genre genre){
+    public void subscribe(DesiflixPlatform desiflix){
+        this.desiflix = desiflix;
+        desiflix.registerUser(this);
+    }
+
+    public void addFavouriteGenre(String genre){
         this.favouriteGenres.add(genre);
-        genre.addUser(this);
+        desiflix.addFavouriteGenre(this, genre);
     }
 
-    public void removeFavouriteGenre(Genre genre){
+    public void removeFavouriteGenre(String genre){
         this.favouriteGenres.remove(genre);
-        genre.removeUser(this);
+        desiflix.removeFavouriteGenre(this, genre);
     }
 
     public void displayFavouriteGenres(){
         System.out.println("Favourite Genres of " + this.userName + ":");
-        for(Genre genre : this.favouriteGenres){
-            System.out.println("-"+genre.getName());
+        for(String genre : this.favouriteGenres){
+            System.out.println("-"+genre);
         }
     }
 
-    public void update(String movie, Genre genre){
-        System.out.println("Hey "+this.userName+"! Watch the new Movie: " + movie + "\nGenre: " + genre.getName()+"\n");
+    public void update(Movie movie){
+        System.out.println("Hey "+this.userName+"!\nWatch the new Movie: " + movie.getName() + "\nGenre: " + movie.getGenre()+"\n");
+    }
+
+    public String getUserName(){
+        return this.userName;
     }
 }
