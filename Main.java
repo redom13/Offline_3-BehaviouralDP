@@ -1,10 +1,10 @@
 public class Main {
     public static void main(String[] args) {
         User user1 = new User("NHR");
-        User user2 = new User("RJ");
-        User user3 = new User("JG");
+        User user2 = new User("Nahid");
+        User user3 = new User("Redom");
 
-        DesiflixPlatform desiflix = new DesiflixPlatform();
+        iflix desiflix = new DesiflixPlatform();
     
         user1.subscribe(desiflix);
         user2.subscribe(desiflix);
@@ -19,14 +19,14 @@ public class Main {
         desiflix.displayUsersGenreWise();
 
         desiflix.uploadMovie("The Call", "Thriller");
-        desiflix.uploadMovie("The Hangover", "Comedy");
+        desiflix.uploadMovie("Johnny English", "Comedy");
         desiflix.uploadMovie("The Conjuring", "Horror");
 
         user1.removeFavouriteGenre("Horror");
 
-        desiflix.displayUsersGenreWise();
-
         desiflix.uploadMovie("Khanjab", "Horror");
+
+        desiflix.displayUsersGenreWise();
     
     }
 

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class User {
-    private DesiflixPlatform desiflix;
+    private iflix flix;
     private ArrayList<String> favouriteGenres;
     private String userName;
 
@@ -10,19 +10,19 @@ public class User {
         this.favouriteGenres = new ArrayList<String>();
     }
 
-    public void subscribe(DesiflixPlatform desiflix){
-        this.desiflix = desiflix;
-        desiflix.registerUser(this);
+    public void subscribe(iflix flix){
+        this.flix = flix;
+        flix.registerUser(this);
     }
 
     public void addFavouriteGenre(String genre){
         this.favouriteGenres.add(genre);
-        desiflix.addFavouriteGenre(this, genre);
+        flix.addFavouriteGenre(this, genre);
     }
 
     public void removeFavouriteGenre(String genre){
         this.favouriteGenres.remove(genre);
-        desiflix.removeFavouriteGenre(this, genre);
+        flix.removeFavouriteGenre(this, genre);
     }
 
     public void displayFavouriteGenres(){

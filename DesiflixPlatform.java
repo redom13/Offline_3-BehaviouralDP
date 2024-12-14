@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DesiflixPlatform {
+public class DesiflixPlatform implements iflix{
     ArrayList<User> allUsers;
     ArrayList<Movie> movies;
     Map<String, ArrayList<User>> genreWiseUsers;
